@@ -1,0 +1,17 @@
+{
+  "name": "captcha-vs-ia",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tres CAPTCHAs resistentes a IA (OCR, visao, agente) - respostas validadas apenas no servidor.",
+  "main": "server.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pngjs": "^7.0.0"
+  }
+}
