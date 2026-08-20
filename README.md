@@ -36,6 +36,21 @@ local, caso a variável não seja definida).
 3. **`/3` — Sequência.** Observe as 4 letras reveladas uma de cada vez (~4s no
    total) e digite a palavra formada.
 
+## Deploy em produção (Render)
+
+O repositório já inclui `render.yaml`, então o deploy é via Blueprint:
+
+1. Acesse https://dashboard.render.com e faça login com sua conta GitHub.
+2. **New > Blueprint**, selecione este repositório (`AngeloSouza1/page-login`).
+3. Render lê o `render.yaml` automaticamente (build `npm install`, start `npm start`,
+   plano free) e cria o serviço. `PORT` é definida pelo próprio Render em runtime.
+4. Cada `git push` na branch `main` faz redeploy automático.
+
+Importante: cada CAPTCHA guarda estado em memória (`Map`), então uma instância free
+do Render que hiberna/reinicia por inatividade limpa os desafios pendentes — isso é
+esperado e inofensivo (só significa que quem tiver uma aba aberta há muito tempo
+precisa recarregar).
+
 ## Notas de design
 
 - Cada carga de `/1`, `/2` ou `/3` gera um desafio novo com um token opaco
